@@ -1,0 +1,4477 @@
+
+<!-- saved from url=(0047)file:///C:/Users/Aarohan/siri.html#patient-care -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>```html
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AURELIA | Luxury Medical Center</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+
+<link href="./hospital website_files/css2" rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   AURELIA LUXURY HOSPITAL
+   HTML + CSS IN ONE FILE
+   NO BOOTSTRAP
+===================================================== */
+
+:root {
+    --navy: #07151c;
+    --navy2: #0d252e;
+    --gold: #c9a66b;
+    --gold-light: #ead09a;
+    --cream: #f5f1e8;
+    --white: #ffffff;
+    --dark: #17262c;
+    --gray: #718087;
+
+    --serif: "Playfair Display", serif;
+    --sans: "DM Sans", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+.container {
+    width: min(1200px, 90%);
+    margin: auto;
+}
+
+section {
+    scroll-margin-top: 80px;
+}
+
+
+/* =====================================================
+   PRELOADER
+===================================================== */
+
+.preloader {
+    position: fixed;
+    inset: 0;
+    background: var(--navy);
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    transition: 0.8s;
+}
+
+.preloader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-logo {
+    color: var(--gold-light);
+    font-family: var(--serif);
+    font-size: 32px;
+    letter-spacing: 8px;
+}
+
+.loader-line {
+    width: 120px;
+    height: 1px;
+    background: var(--gold);
+    margin-top: 20px;
+
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+
+    0% {
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+
+    50% {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    100% {
+        transform: scaleX(0);
+        transform-origin: right;
+    }
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    z-index: 1000;
+
+    padding: 22px 0;
+
+    transition: 0.4s;
+}
+
+.header.scrolled {
+    background: rgba(7, 21, 28, 0.96);
+    backdrop-filter: blur(18px);
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    color: white;
+}
+
+.logo-mark {
+    width: 45px;
+    height: 45px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--gold);
+
+    color: var(--gold-light);
+
+    font-family: var(--serif);
+    font-size: 25px;
+
+    transform: rotate(45deg);
+}
+
+.logo-mark span {
+    transform: rotate(-45deg);
+}
+
+.logo-text {
+    font-family: var(--serif);
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+.logo-text small {
+    display: block;
+
+    font-family: var(--sans);
+    font-size: 7px;
+
+    color: var(--gold-light);
+
+    letter-spacing: 3px;
+    margin-top: 3px;
+}
+
+
+/* NAVIGATION */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.navbar a {
+    color: rgba(255,255,255,0.8);
+
+    font-size: 11px;
+
+    position: relative;
+
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: var(--gold-light);
+}
+
+.navbar a:not(.appointment-btn)::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--gold);
+
+    transition: 0.3s;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+.appointment-btn {
+
+    padding: 13px 19px;
+
+    border: 1px solid var(--gold);
+
+    color: var(--gold-light) !important;
+
+    transition: 0.3s;
+}
+
+.appointment-btn:hover {
+    background: var(--gold);
+    color: var(--navy) !important;
+}
+
+
+/* MOBILE MENU */
+
+.menu-toggle {
+    display: none;
+
+    border: 0;
+    background: none;
+
+    cursor: pointer;
+}
+
+.menu-toggle span {
+
+    display: block;
+
+    width: 28px;
+    height: 2px;
+
+    background: white;
+
+    margin: 6px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+    min-height: 100vh;
+    height: 900px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: var(--navy);
+
+    color: white;
+}
+
+
+/* HERO SLIDES */
+
+.hero-slider,
+.hero-slide {
+
+    position: absolute;
+
+    inset: 0;
+}
+
+.hero-slide {
+
+    background-size: cover;
+    background-position: center;
+
+    opacity: 0;
+
+    transform: scale(1.08);
+
+    transition:
+        opacity 1.5s ease,
+        transform 6s ease;
+}
+
+.hero-slide.active {
+
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+
+/* DARK GLASS OVERLAY */
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(3,13,18,0.94),
+            rgba(3,13,18,0.65),
+            rgba(3,13,18,0.2)
+        ),
+
+        linear-gradient(
+            0deg,
+            rgba(3,13,18,0.7),
+            transparent 60%
+        );
+}
+
+
+/* HERO CONTENT */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 3;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    padding-top: 80px;
+}
+
+.hero-small {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: var(--gold-light);
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 25px;
+}
+
+.hero-small span {
+
+    width: 45px;
+    height: 1px;
+
+    background: var(--gold);
+}
+
+.hero h1 {
+
+    max-width: 850px;
+
+    font-family: var(--serif);
+
+    font-size: clamp(48px, 6vw, 85px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+}
+
+.hero h1 em {
+
+    color: var(--gold-light);
+
+    font-style: italic;
+}
+
+.hero-description {
+
+    max-width: 600px;
+
+    color: rgba(255,255,255,0.72);
+
+    line-height: 1.8;
+
+    margin: 30px 0;
+}
+
+
+/* HERO BUTTONS */
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    min-height: 54px;
+
+    padding: 0 25px;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    transition: 0.35s;
+}
+
+.btn-gold {
+
+    background: var(--gold);
+
+    color: var(--navy);
+}
+
+.btn-gold:hover {
+
+    background: var(--gold-light);
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 40px rgba(201,166,107,0.25);
+}
+
+.btn-outline {
+
+    border: 1px solid rgba(255,255,255,0.4);
+
+    color: white;
+}
+
+.btn-outline:hover {
+
+    border-color: var(--gold);
+
+    color: var(--gold-light);
+
+    transform: translateY(-4px);
+}
+
+
+/* HERO STATISTICS */
+
+.hero-stats {
+
+    display: flex;
+
+    gap: 50px;
+
+    margin-top: 70px;
+}
+
+.hero-stat {
+
+    border-left: 1px solid rgba(255,255,255,0.2);
+
+    padding-left: 18px;
+}
+
+.hero-stat strong {
+
+    font-family: var(--serif);
+
+    font-size: 34px;
+
+    font-weight: 400;
+}
+
+.hero-stat span {
+
+    color: var(--gold-light);
+}
+
+.hero-stat small {
+
+    display: block;
+
+    color: rgba(255,255,255,0.5);
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    margin-top: 5px;
+}
+
+
+/* SLIDER CONTROLS */
+
+.slider-controls {
+
+    position: absolute;
+
+    z-index: 5;
+
+    right: 5%;
+
+    bottom: 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.slider-btn {
+
+    width: 42px;
+    height: 42px;
+
+    background: transparent;
+
+    border: 1px solid rgba(255,255,255,0.3);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.slider-btn:hover {
+
+    background: var(--gold);
+
+    color: var(--navy);
+}
+
+.slider-dots {
+
+    display: flex;
+
+    gap: 7px;
+}
+
+.slider-dot {
+
+    width: 22px;
+    height: 2px;
+
+    border: 0;
+
+    background: rgba(255,255,255,0.3);
+
+    cursor: pointer;
+}
+
+.slider-dot.active {
+
+    background: var(--gold);
+}
+
+
+/* SCROLL */
+
+.scroll-down {
+
+    position: absolute;
+
+    z-index: 5;
+
+    left: 5%;
+
+    bottom: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    color: rgba(255,255,255,0.5);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+.scroll-down div {
+
+    width: 45px;
+    height: 1px;
+
+    background: var(--gold);
+}
+
+
+/* =====================================================
+   MARQUEE
+===================================================== */
+
+.marquee {
+
+    background: var(--gold);
+
+    overflow: hidden;
+
+    padding: 17px 0;
+}
+
+.marquee-track {
+
+    display: flex;
+
+    width: max-content;
+
+    animation: marquee 28s linear infinite;
+}
+
+.marquee span {
+
+    margin: 0 30px;
+
+    white-space: nowrap;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: var(--navy);
+}
+
+@keyframes marquee {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
+
+
+/* =====================================================
+   GENERAL SECTIONS
+===================================================== */
+
+.section {
+
+    padding: 120px 0;
+}
+
+.section-dark {
+
+    padding: 120px 0;
+
+    background: var(--navy);
+
+    color: white;
+}
+
+.section-light {
+
+    padding: 120px 0;
+
+    background: #f8f5ed;
+}
+
+.section-label {
+
+    color: var(--gold);
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    font-weight: 700;
+}
+
+.section-heading {
+
+    margin-bottom: 60px;
+}
+
+.section-heading.center {
+
+    text-align: center;
+
+    max-width: 750px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-heading h2 {
+
+    font-family: var(--serif);
+
+    font-weight: 400;
+
+    font-size: clamp(40px,5vw,64px);
+
+    line-height: 1.1;
+
+    margin-top: 15px;
+}
+
+.section-heading h2 em {
+
+    color: var(--gold);
+
+    font-style: italic;
+}
+
+.section-heading p {
+
+    color: var(--gray);
+
+    line-height: 1.8;
+
+    margin-top: 20px;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    align-items: center;
+}
+
+.about-images {
+
+    position: relative;
+
+    min-height: 560px;
+}
+
+.about-main {
+
+    width: 78%;
+
+    height: 500px;
+
+    overflow: hidden;
+}
+
+.about-main img {
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.7s;
+}
+
+.about-main:hover img {
+
+    transform: scale(1.05);
+}
+
+.about-small {
+
+    position: absolute;
+
+    right: 0;
+
+    bottom: 0;
+
+    width: 43%;
+
+    height: 250px;
+
+    border: 10px solid var(--cream);
+
+    overflow: hidden;
+}
+
+.about-small img {
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.experience {
+
+    position: absolute;
+
+    right: 0;
+
+    top: 35px;
+
+    width: 135px;
+    height: 135px;
+
+    border-radius: 50%;
+
+    background: var(--gold);
+
+    color: var(--navy);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-direction: column;
+
+    text-align: center;
+}
+
+.experience strong {
+
+    font-family: var(--serif);
+
+    font-size: 38px;
+}
+
+.experience span {
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+}
+
+.about-content h2 {
+
+    font-family: var(--serif);
+
+    font-size: clamp(40px,5vw,64px);
+
+    font-weight: 400;
+
+    line-height: 1.1;
+
+    margin-top: 15px;
+}
+
+.about-content h2 em {
+
+    color: var(--gold);
+
+    font-style: italic;
+}
+
+.about-lead {
+
+    font-family: var(--serif);
+
+    font-size: 21px;
+
+    line-height: 1.7;
+
+    margin: 30px 0 20px;
+}
+
+.about-content > p {
+
+    color: var(--gray);
+
+    line-height: 1.8;
+}
+
+.about-list {
+
+    margin: 35px 0;
+}
+
+.about-list div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #ded8ca;
+}
+
+.about-list span {
+
+    color: var(--gold);
+
+    font-family: var(--serif);
+}
+
+
+/* =====================================================
+   WHY US
+===================================================== */
+
+.why-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+}
+
+.why-card {
+
+    padding: 40px 30px;
+
+    border-top: 1px solid rgba(255,255,255,.12);
+
+    border-right: 1px solid rgba(255,255,255,.12);
+
+    transition: .4s;
+}
+
+.why-card:last-child {
+
+    border-right: 0;
+}
+
+.why-card:hover {
+
+    background: rgba(255,255,255,.04);
+
+    transform: translateY(-8px);
+}
+
+.why-number {
+
+    color: var(--gold);
+
+    font-size: 11px;
+}
+
+.why-icon {
+
+    color: var(--gold-light);
+
+    font-size: 30px;
+
+    margin: 45px 0 25px;
+}
+
+.why-card h3 {
+
+    font-family: var(--serif);
+
+    font-size: 23px;
+
+    font-weight: 400;
+}
+
+.why-card p {
+
+    color: rgba(255,255,255,.5);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    margin-top: 15px;
+}
+
+
+/* =====================================================
+   SPECIALITIES
+===================================================== */
+
+.speciality-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 25px;
+}
+
+.speciality-card {
+
+    background: white;
+
+    overflow: hidden;
+
+    transition: .4s;
+}
+
+.speciality-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow: 0 25px 60px rgba(0,0,0,.12);
+}
+
+.speciality-image {
+
+    height: 270px;
+
+    overflow: hidden;
+}
+
+.speciality-image img {
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .7s;
+}
+
+.speciality-card:hover img {
+
+    transform: scale(1.08);
+}
+
+.speciality-content {
+
+    padding: 28px;
+}
+
+.speciality-content span {
+
+    color: var(--gold);
+
+    font-size: 10px;
+}
+
+.speciality-content h3 {
+
+    font-family: var(--serif);
+
+    font-size: 27px;
+
+    font-weight: 400;
+
+    margin: 10px 0;
+}
+
+.speciality-content p {
+
+    color: var(--gray);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+.speciality-content a {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    color: var(--navy);
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   DOCTORS
+===================================================== */
+
+.doctor-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 25px;
+}
+
+.doctor-card {
+
+    background: white;
+}
+
+.doctor-image {
+
+    height: 390px;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+.doctor-image img {
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .6s;
+}
+
+.doctor-card:hover img {
+
+    transform: scale(1.05);
+}
+
+.doctor-social {
+
+    position: absolute;
+
+    right: 15px;
+
+    bottom: 15px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    transition: .4s;
+}
+
+.doctor-card:hover .doctor-social {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+.doctor-social a {
+
+    width: 35px;
+
+    height: 35px;
+
+    display: grid;
+
+    place-items: center;
+
+    background: var(--gold);
+
+    color: var(--navy);
+
+    font-size: 11px;
+}
+
+.doctor-info {
+
+    padding: 25px;
+}
+
+.doctor-info > span {
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+.doctor-info h3 {
+
+    font-family: var(--serif);
+
+    font-size: 23px;
+
+    font-weight: 400;
+
+    margin: 8px 0;
+}
+
+.doctor-info p {
+
+    color: var(--gray);
+
+    font-size: 12px;
+}
+
+.doctor-link {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   FACILITIES
+===================================================== */
+
+.facility-showcase {
+
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr;
+
+    min-height: 520px;
+
+    background: white;
+}
+
+.facility-image {
+
+    overflow: hidden;
+}
+
+.facility-image img {
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .8s;
+}
+
+.facility-showcase:hover img {
+
+    transform: scale(1.04);
+}
+
+.facility-content {
+
+    padding: 70px;
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-direction: column;
+}
+
+.facility-content h3 {
+
+    font-family: var(--serif);
+
+    font-size: 42px;
+
+    font-weight: 400;
+
+    margin: 20px 0;
+}
+
+.facility-content p {
+
+    color: var(--gray);
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+}
+
+.facility-list {
+
+    display: grid;
+
+    grid-template-columns: repeat(5,1fr);
+}
+
+.facility-item {
+
+    padding: 30px 20px;
+
+    border: 1px solid #ddd7cb;
+
+    transition: .3s;
+}
+
+.facility-item:hover {
+
+    background: var(--navy);
+
+    color: white;
+}
+
+.facility-item span {
+
+    color: var(--gold);
+
+    font-size: 10px;
+}
+
+.facility-item h3 {
+
+    font-family: var(--serif);
+
+    font-size: 19px;
+
+    font-weight: 400;
+
+    margin: 18px 0 10px;
+}
+
+.facility-item p {
+
+    color: var(--gray);
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   PATIENT CARE
+===================================================== */
+
+.care-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    align-items: center;
+}
+
+.care-content h2 {
+
+    font-family: var(--serif);
+
+    font-size: clamp(40px,5vw,64px);
+
+    font-weight: 400;
+
+    margin-top: 15px;
+}
+
+.care-content h2 em {
+
+    color: var(--gold-light);
+
+    font-style: italic;
+}
+
+.care-content > p {
+
+    color: rgba(255,255,255,.55);
+
+    line-height: 1.9;
+
+    margin: 30px 0;
+}
+
+.care-points {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+.care-point {
+
+    display: flex;
+
+    gap: 12px;
+
+    color: rgba(255,255,255,.7);
+
+    font-size: 12px;
+}
+
+.care-point span {
+
+    color: var(--gold);
+}
+
+.care-image {
+
+    position: relative;
+}
+
+.care-image img {
+
+    height: 570px;
+
+    object-fit: cover;
+}
+
+.care-quote {
+
+    position: absolute;
+
+    left: -40px;
+
+    bottom: 30px;
+
+    background: var(--gold);
+
+    color: var(--navy);
+
+    padding: 28px;
+
+    font-family: var(--serif);
+
+    font-size: 25px;
+}
+
+
+/* =====================================================
+   TESTIMONIALS
+===================================================== */
+
+.testimonial-wrapper {
+
+    max-width: 850px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.testimonial {
+
+    display: none;
+
+    animation: testimonialFade .6s ease;
+}
+
+.testimonial.active {
+
+    display: block;
+}
+
+@keyframes testimonialFade {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(15px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+.quote {
+
+    color: var(--gold);
+
+    font-family: var(--serif);
+
+    font-size: 80px;
+
+    height: 65px;
+}
+
+.testimonial p {
+
+    font-family: var(--serif);
+
+    font-size: clamp(22px,3vw,34px);
+
+    line-height: 1.5;
+}
+
+.patient {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.patient-avatar {
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    background: var(--navy);
+
+    color: var(--gold);
+
+    font-size: 11px;
+}
+
+.patient-info {
+
+    text-align: left;
+}
+
+.patient-info strong {
+
+    display: block;
+
+    font-size: 12px;
+}
+
+.patient-info span {
+
+    color: var(--gray);
+
+    font-size: 10px;
+}
+
+.testimonial-dots {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 30px;
+}
+
+.t-dot {
+
+    width: 30px;
+
+    height: 2px;
+
+    border: 0;
+
+    background: #ccc;
+
+    cursor: pointer;
+}
+
+.t-dot.active {
+
+    background: var(--gold);
+}
+
+
+/* =====================================================
+   APPOINTMENT
+===================================================== */
+
+.appointment {
+
+    padding: 120px 0;
+
+    background:
+        linear-gradient(
+            rgba(7,21,28,.95),
+            rgba(7,21,28,.95)
+        ),
+        url("https://images.unsplash.com/photo-1519494080410-f9aa8f52f7b5?auto=format&fit=crop&w=1800&q=80");
+
+    background-size: cover;
+
+    color: white;
+}
+
+.appointment-grid {
+
+    display: grid;
+
+    grid-template-columns: .85fr 1.15fr;
+
+    gap: 90px;
+
+    align-items: center;
+}
+
+.appointment-info h2 {
+
+    font-family: var(--serif);
+
+    font-size: clamp(40px,5vw,64px);
+
+    font-weight: 400;
+
+    margin-top: 15px;
+}
+
+.appointment-info h2 em {
+
+    color: var(--gold-light);
+
+    font-style: italic;
+}
+
+.appointment-info > p {
+
+    color: rgba(255,255,255,.55);
+
+    line-height: 1.8;
+
+    margin: 30px 0;
+}
+
+.emergency {
+
+    border-top: 1px solid rgba(255,255,255,.15);
+}
+
+.emergency div {
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,.15);
+}
+
+.emergency span {
+
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+.emergency strong {
+
+    display: block;
+
+    font-family: var(--serif);
+
+    font-size: 21px;
+
+    font-weight: 400;
+
+    margin-top: 5px;
+}
+
+
+/* FORM */
+
+.appointment-form {
+
+    background: rgba(255,255,255,.06);
+
+    backdrop-filter: blur(15px);
+
+    padding: 45px;
+
+    border: 1px solid rgba(255,255,255,.1);
+}
+
+.form-row {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+.form-group {
+
+    margin-bottom: 20px;
+}
+
+.form-group label {
+
+    display: block;
+
+    color: rgba(255,255,255,.6);
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+
+    width: 100%;
+
+    height: 52px;
+
+    padding: 0 15px;
+
+    border: 1px solid rgba(255,255,255,.18);
+
+    background: rgba(255,255,255,.04);
+
+    color: white;
+
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+
+    border-color: var(--gold);
+}
+
+.form-group select option {
+
+    color: #111;
+}
+
+.submit-btn {
+
+    border: 0;
+
+    width: 100%;
+
+    cursor: pointer;
+}
+
+.form-message {
+
+    display: none;
+
+    text-align: center;
+
+    color: var(--gold-light);
+
+    font-size: 12px;
+
+    margin-top: 15px;
+}
+
+.form-message.show {
+
+    display: block;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact {
+
+    background: white;
+}
+
+.contact-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+}
+
+.contact-item {
+
+    padding: 50px 30px;
+
+    border-right: 1px solid #e4dfd4;
+}
+
+.contact-item:last-child {
+
+    border-right: 0;
+}
+
+.contact-icon {
+
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 25px;
+
+    margin-bottom: 25px;
+}
+
+.contact-label {
+
+    color: var(--gray);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+.contact-item h3 {
+
+    font-family: var(--serif);
+
+    font-size: 19px;
+
+    font-weight: 400;
+
+    line-height: 1.6;
+
+    margin-top: 10px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+
+    background: #041017;
+
+    color: white;
+
+    padding: 80px 0 25px;
+}
+
+.footer-grid {
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+
+    gap: 50px;
+
+    padding-bottom: 60px;
+}
+
+.footer-brand p {
+
+    color: rgba(255,255,255,.45);
+
+    font-size: 13px;
+
+    margin: 25px 0;
+}
+
+.socials {
+
+    display: flex;
+
+    gap: 8px;
+}
+
+.socials a {
+
+    width: 35px;
+    height: 35px;
+
+    display: grid;
+
+    place-items: center;
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    color: var(--gold-light);
+
+    font-size: 10px;
+
+    transition: .3s;
+}
+
+.socials a:hover {
+
+    background: var(--gold);
+
+    color: var(--navy);
+}
+
+.footer-column h4 {
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+}
+
+.footer-column a {
+
+    display: block;
+
+    color: rgba(255,255,255,.5);
+
+    font-size: 12px;
+
+    margin-bottom: 12px;
+
+    transition: .3s;
+}
+
+.footer-column a:hover {
+
+    color: var(--gold-light);
+
+    transform: translateX(5px);
+}
+
+.footer-column p {
+
+    color: rgba(255,255,255,.45);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+.footer-bottom {
+
+    border-top: 1px solid rgba(255,255,255,.1);
+
+    padding-top: 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: rgba(255,255,255,.35);
+
+    font-size: 10px;
+}
+
+.footer-bottom div {
+
+    display: flex;
+
+    gap: 20px;
+}
+
+
+/* =====================================================
+   SCROLL ANIMATION
+===================================================== */
+
+.reveal {
+
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition: 1s ease;
+}
+
+.reveal.visible {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1100px) {
+
+    .navbar {
+        gap: 14px;
+    }
+
+    .doctor-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .why-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .facility-list {
+        grid-template-columns: repeat(3,1fr);
+    }
+
+}
+
+
+@media(max-width:850px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar {
+
+        position: fixed;
+
+        inset: 0;
+
+        background: rgba(7,21,28,.98);
+
+        backdrop-filter: blur(20px);
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        transform: translateX(100%);
+
+        transition: .4s;
+    }
+
+    .navbar.active {
+
+        transform: translateX(0);
+    }
+
+    .navbar a {
+
+        font-size: 16px;
+    }
+
+    .hero {
+
+        height: 850px;
+    }
+
+    .hero-stats {
+
+        gap: 20px;
+
+        flex-wrap: wrap;
+    }
+
+    .about-grid,
+    .care-grid,
+    .appointment-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+    }
+
+    .speciality-grid {
+
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .facility-showcase {
+
+        grid-template-columns: 1fr;
+    }
+
+    .facility-image {
+
+        height: 400px;
+    }
+
+    .contact-grid {
+
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .contact-item:nth-child(2) {
+
+        border-right: 0;
+    }
+
+    .footer-grid {
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+@media(max-width:600px) {
+
+    .section,
+    .section-dark,
+    .section-light,
+    .appointment {
+
+        padding: 80px 0;
+    }
+
+    .hero h1 {
+
+        font-size: 45px;
+    }
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .hero-stats {
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        margin-top: 40px;
+    }
+
+    .about-images {
+
+        min-height: 400px;
+    }
+
+    .about-main {
+
+        height: 360px;
+    }
+
+    .about-small {
+
+        height: 180px;
+    }
+
+    .experience {
+
+        width: 105px;
+
+        height: 105px;
+    }
+
+    .speciality-grid,
+    .doctor-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .why-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .why-card {
+
+        border-right: 0;
+
+        border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .doctor-image {
+
+        height: 450px;
+    }
+
+    .facility-list {
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .facility-content {
+
+        padding: 40px 25px;
+    }
+
+    .care-points {
+
+        grid-template-columns: 1fr;
+    }
+
+    .care-image img {
+
+        height: 400px;
+    }
+
+    .care-quote {
+
+        left: 15px;
+    }
+
+    .form-row {
+
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+    .appointment-form {
+
+        padding: 25px;
+    }
+
+    .contact-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .contact-item {
+
+        border-right: 0;
+
+        border-bottom: 1px solid #e4dfd4;
+    }
+
+    .footer-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+}
+
+</style>
+
+
+
+
+
+
+<!-- =====================================================
+     PRELOADER
+===================================================== -->
+
+<div class="preloader hide">
+
+    <div class="loader-logo">
+        AURELIA
+    </div>
+
+    <div class="loader-line"></div>
+
+</div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+<div class="container nav-wrapper">
+
+
+<a href="file:///C:/Users/Aarohan/siri.html#home" class="logo">
+
+    <div class="logo-mark">
+        <span>A</span>
+    </div>
+
+    <div class="logo-text">
+        AURELIA
+        <small>MEDICAL CENTER</small>
+    </div>
+
+</a>
+
+
+<nav class="navbar" id="navbar">
+
+    <a href="file:///C:/Users/Aarohan/siri.html#home">Home</a>
+
+    <a href="file:///C:/Users/Aarohan/siri.html#about">About</a>
+
+    <a href="file:///C:/Users/Aarohan/siri.html#specialities">Specialities</a>
+
+    <a href="file:///C:/Users/Aarohan/siri.html#doctors">Doctors</a>
+
+    <a href="file:///C:/Users/Aarohan/siri.html#facilities">Facilities</a>
+
+    <a href="file:///C:/Users/Aarohan/siri.html#patient-care">Patient Care</a>
+
+    <a href="file:///C:/Users/Aarohan/siri.html#contact">Contact</a>
+
+    <a href="file:///C:/Users/Aarohan/siri.html#appointment" class="appointment-btn">
+        Book Appointment
+    </a>
+
+</nav>
+
+
+<button class="menu-toggle" id="menuToggle">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+</button>
+
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+
+<div class="hero-slider">
+
+
+<div class="hero-slide" style="background-image:url(&#39;https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&amp;fit=crop&amp;w=2000&amp;q=90&#39;);">
+</div>
+
+
+<div class="hero-slide" style="background-image:url(&#39;https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&amp;fit=crop&amp;w=2000&amp;q=90&#39;);">
+</div>
+
+
+<div class="hero-slide active" style="background-image:url(&#39;https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&amp;fit=crop&amp;w=2000&amp;q=90&#39;);">
+</div>
+
+
+</div>
+
+
+<div class="hero-overlay"></div>
+
+
+<div class="container hero-content">
+
+
+<div class="hero-small">
+
+<span></span>
+
+WORLD-CLASS HEALTHCARE
+
+</div>
+
+
+<h1>
+
+Exceptional Care.<br>
+
+<em>Extraordinary</em> Standards.
+
+</h1>
+
+
+<p class="hero-description">
+
+A new standard of private healthcare where advanced medicine
+meets exceptional comfort, compassion and personalized attention.
+
+</p>
+
+
+<div class="hero-buttons">
+
+<a href="file:///C:/Users/Aarohan/siri.html#appointment" class="btn btn-gold">
+
+Book an Appointment
+
+<span>↗</span>
+
+</a>
+
+
+<a href="file:///C:/Users/Aarohan/siri.html#doctors" class="btn btn-outline">
+
+Explore Our Specialists
+
+</a>
+
+</div>
+
+
+<div class="hero-stats">
+
+
+<div class="hero-stat">
+
+<strong class="counter" data-target="25">25</strong>
+
+<span>+</span>
+
+<small>Years of Excellence</small>
+
+</div>
+
+
+<div class="hero-stat">
+
+<strong class="counter" data-target="120">120</strong>
+
+<span>+</span>
+
+<small>Expert Doctors</small>
+
+</div>
+
+
+<div class="hero-stat">
+
+<strong class="counter" data-target="50">50</strong>
+
+<span>K+</span>
+
+<small>Patients Served</small>
+
+</div>
+
+
+<div class="hero-stat">
+
+<strong class="counter" data-target="98">98</strong>
+
+<span>%</span>
+
+<small>Patient Satisfaction</small>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<div class="slider-controls">
+
+<button class="slider-btn prev">←</button>
+
+<div class="slider-dots">
+
+<button class="slider-dot"></button>
+
+<button class="slider-dot"></button>
+
+<button class="slider-dot active"></button>
+
+</div>
+
+<button class="slider-btn next">→</button>
+
+</div>
+
+
+<div class="scroll-down">
+
+<span>SCROLL TO DISCOVER</span>
+
+<div></div>
+
+</div>
+
+
+</section>
+
+
+<!-- =====================================================
+     MARQUEE
+===================================================== -->
+
+<div class="marquee">
+
+<div class="marquee-track">
+
+<span>✦ CARDIOLOGY</span>
+<span>✦ NEUROLOGY</span>
+<span>✦ ONCOLOGY</span>
+<span>✦ ROBOTIC SURGERY</span>
+<span>✦ ORTHOPAEDICS</span>
+<span>✦ WOMEN &amp; CHILD CARE</span>
+
+<span>✦ CARDIOLOGY</span>
+<span>✦ NEUROLOGY</span>
+<span>✦ ONCOLOGY</span>
+<span>✦ ROBOTIC SURGERY</span>
+<span>✦ ORTHOPAEDICS</span>
+<span>✦ WOMEN &amp; CHILD CARE</span>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section class="section" id="about">
+
+<div class="container about-grid">
+
+
+<div class="about-images reveal visible">
+
+<div class="about-main">
+
+<img src="./hospital website_files/photo-1519494026892-80bbd2d6fd0d">
+
+</div>
+
+
+<div class="about-small">
+
+<img src="./hospital website_files/photo-1586773860418-d37222d8fce3">
+
+</div>
+
+
+<div class="experience">
+
+<strong>25</strong>
+
+<span>
+YEARS OF<br>
+EXCELLENCE
+</span>
+
+</div>
+
+</div>
+
+
+<div class="about-content reveal visible">
+
+<span class="section-label">
+ABOUT AURELIA
+</span>
+
+
+<h2>
+
+Healthcare designed
+<br>
+
+<em>around you.</em>
+
+</h2>
+
+
+<p class="about-lead">
+
+Aurelia Medical Center brings together exceptional specialists,
+advanced technology and a deeply personalized approach to healthcare.
+
+</p>
+
+
+<p>
+
+From preventive care to complex procedures, every detail of your
+experience is thoughtfully designed around comfort, dignity and
+clinical excellence.
+
+</p>
+
+
+<div class="about-list">
+
+<div>
+
+<span>01</span>
+
+<p>
+International-standard clinical care
+</p>
+
+</div>
+
+
+<div>
+
+<span>02</span>
+
+<p>
+Advanced medical technology
+</p>
+
+</div>
+
+
+<div>
+
+<span>03</span>
+
+<p>
+Personalized patient experience
+</p>
+
+</div>
+
+</div>
+
+
+<a href="file:///C:/Users/Aarohan/siri.html#patient-care" class="btn btn-outline" style="background:var(--navy);">
+
+Discover Our Approach →
+
+</a>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     WHY CHOOSE US
+===================================================== -->
+
+<section class="section-dark">
+
+<div class="container">
+
+
+<div class="section-heading center reveal visible">
+
+<span class="section-label">
+WHY AURELIA
+</span>
+
+
+<h2>
+
+Where medicine meets
+<br>
+
+<em>meaningful care.</em>
+
+</h2>
+
+
+<p style="color:rgba(255,255,255,.55);">
+
+Every decision we make begins with one question:
+what is best for our patients?
+
+</p>
+
+</div>
+
+
+<div class="why-grid">
+
+
+<div class="why-card reveal visible">
+
+<div class="why-number">01</div>
+
+<div class="why-icon">✦</div>
+
+<h3>
+International Standards
+</h3>
+
+<p>
+World-class clinical protocols and internationally
+benchmarked healthcare practices.
+</p>
+
+</div>
+
+
+<div class="why-card reveal visible">
+
+<div class="why-number">02</div>
+
+<div class="why-icon">◈</div>
+
+<h3>
+Advanced Technology
+</h3>
+
+<p>
+Next-generation diagnostic and surgical technology
+for precise and confident treatment.
+</p>
+
+</div>
+
+
+<div class="why-card reveal visible">
+
+<div class="why-number">03</div>
+
+<div class="why-icon">◇</div>
+
+<h3>
+Renowned Specialists
+</h3>
+
+<p>
+A multidisciplinary team of experienced specialists
+committed to clinical excellence.
+</p>
+
+</div>
+
+
+<div class="why-card reveal visible">
+
+<div class="why-number">04</div>
+
+<div class="why-icon">♡</div>
+
+<h3>
+Personalized Care
+</h3>
+
+<p>
+Thoughtful care plans and dedicated support for
+every individual patient.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SPECIALITIES
+===================================================== -->
+
+<section class="section" id="specialities">
+
+<div class="container">
+
+
+<div class="section-heading center reveal visible">
+
+<span class="section-label">
+OUR SPECIALITIES
+</span>
+
+<h2>
+
+Expertise you can
+<br>
+
+<em>trust.</em>
+
+</h2>
+
+<p>
+
+Comprehensive specialist care delivered by experienced
+medical professionals.
+
+</p>
+
+</div>
+
+
+<div class="speciality-grid">
+
+
+<div class="speciality-card reveal visible">
+
+<div class="speciality-image">
+
+<img src="tps://detrhtox.com.tr/en/health-hygiene-standards-international-regulations/">
+
+</div>
+
+<div class="speciality-content">
+
+<span>01</span>
+
+<h3>Cardiology</h3>
+
+<p>
+Advanced heart and cardiovascular care.
+</p>
+
+<a href="file:///C:/Users/Aarohan/siri.html#appointment">
+Explore →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="speciality-card reveal visible">
+
+<div class="speciality-image">
+
+<img src="./hospital website_files/photo-1559757175-7cb057f4a3a1">
+
+</div>
+
+<div class="speciality-content">
+
+<span>02</span>
+
+<h3>Neurology</h3>
+
+<p>
+Specialized care for neurological conditions.
+</p>
+
+<a href="file:///C:/Users/Aarohan/siri.html#appointment">
+Explore →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="speciality-card reveal visible">
+
+<div class="speciality-image">
+
+<img src="./hospital website_files/photo-1579684385127-1ef15d508118">
+
+</div>
+
+<div class="speciality-content">
+
+<span>03</span>
+
+<h3>Oncology</h3>
+
+<p>
+Comprehensive cancer treatment and support.
+</p>
+
+<a href="file:///C:/Users/Aarohan/siri.html#appointment">
+Explore →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="speciality-card reveal visible">
+
+<div class="speciality-image">
+
+<img src="./hospital website_files/photo-1530026405186-ed1f139313f8">
+
+</div>
+
+<div class="speciality-content">
+
+<span>04</span>
+
+<h3>Orthopaedics</h3>
+
+<p>
+Restoring movement, strength and confidence.
+</p>
+
+<a href="file:///C:/Users/Aarohan/siri.html#appointment">
+Explore →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="speciality-card reveal visible">
+
+<div class="speciality-image">
+
+<img src="./hospital website_files/photo-1576091160399-112ba8d25d1d">
+
+</div>
+
+<div class="speciality-content">
+
+<span>05</span>
+
+<h3>Women &amp; Child Care</h3>
+
+<p>
+Compassionate care for every stage of life.
+</p>
+
+<a href="file:///C:/Users/Aarohan/siri.html#appointment">
+Explore →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="speciality-card reveal visible">
+
+<div class="speciality-image">
+
+<img src="./hospital website_files/photo-1551076805-e1869033e561">
+
+</div>
+
+<div class="speciality-content">
+
+<span>06</span>
+
+<h3>Robotic Surgery</h3>
+
+<p>
+Precision surgery powered by innovation.
+</p>
+
+<a href="file:///C:/Users/Aarohan/siri.html#appointment">
+Explore →
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     DOCTORS
+===================================================== -->
+
+<section class="section-light" id="doctors">
+
+<div class="container">
+
+
+<div class="section-heading center reveal visible">
+
+<span class="section-label">
+OUR SPECIALISTS
+</span>
+
+<h2>
+
+Meet the people behind
+<br>
+
+<em>exceptional care.</em>
+
+</h2>
+
+</div>
+
+
+<div class="doctor-grid">
+
+
+<div class="doctor-card reveal visible">
+
+<div class="doctor-image">
+
+<img src="./hospital website_files/photo-1559839734-2b71ea197ec2">
+
+<div class="doctor-social">
+
+<a href="file:///C:/Users/Aarohan/siri.html#">in</a>
+
+<a href="file:///C:/Users/Aarohan/siri.html#">+</a>
+
+</div>
+
+</div>
+
+
+<div class="doctor-info">
+
+<span>MD, FACC</span>
+
+<h3>
+Dr. Amelia Carter
+</h3>
+
+<p>
+Consultant Cardiologist
+</p>
+
+<a href="file:///C:/Users/Aarohan/siri.html#appointment" class="doctor-link">
+Book Consultation →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="doctor-card reveal visible">
+
+<div class="doctor-image">
+
+<img src="./hospital website_files/photo-1612349317150-e413f6a5b16d">
+
+<div class="doctor-social">
+
+<a href="file:///C:/Users/Aarohan/siri.html#">in</a>
+
+<a href="file:///C:/Users/Aarohan/siri.html#">+</a>
+
+</div>
+
+</div>
+
+
+<div class="doctor-info">
+
+<span>MD, DM</span>
+
+<h3>
+Dr. Ethan Williams
+</h3>
+
+<p>
+Senior Neurologist
+</p>
+
+<a href="file:///C:/Users/Aarohan/siri.html#appointment" class="doctor-link">
+Book Consultation →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="doctor-card reveal visible">
+
+<div class="doctor-image">
+
+<img src="./hospital website_files/photo-1594824476967-48c8b964273f">
+
+<div class="doctor-social">
+
+<a href="file:///C:/Users/Aarohan/siri.html#">in</a>
+
+<a href="file:///C:/Users/Aarohan/siri.html#">+</a>
+
+</div>
+
+</div>
+
+
+<div class="doctor-info">
+
+<span>MD, MS</span>
+
+<h3>
+Dr. Sophia Reynolds
+</h3>
+
+<p>
+Consultant Oncologist
+</p>
+
+<a href="file:///C:/Users/Aarohan/siri.html#appointment" class="doctor-link">
+Book Consultation →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="doctor-card reveal visible">
+
+<div class="doctor-image">
+
+<img src="https://detrox.com.tr/en/health-hygiene-standards-international-regulations/">
+
+<div class="doctor-social">
+
+<a href="file:///C:/Users/Aarohan/siri.html#">in</a>
+
+<a href="file:///C:/Users/Aarohan/siri.html#">+</a>
+
+</div>
+
+</div>
+
+
+<div class="doctor-info">
+
+<span>MS, FRCS</span>
+
+<h3>
+Dr. Daniel Morgan
+</h3>
+
+<p>
+Orthopaedic Surgeon
+</p>
+
+<a href="file:///C:/Users/Aarohan/siri.html#appointment" class="doctor-link">
+Book Consultation →
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FACILITIES
+===================================================== -->
+
+<section class="section" id="facilities">
+
+<div class="container">
+
+
+<div class="section-heading center reveal visible">
+
+<span class="section-label">
+THE AURELIA EXPERIENCE
+</span>
+
+<h2>
+
+Designed for
+<br>
+
+<em>your comfort.</em>
+
+</h2>
+
+<p>
+A healing environment where clinical excellence
+meets five-star hospitality.
+</p>
+
+</div>
+
+
+<div class="facility-showcase reveal visible">
+
+
+<div class="facility-image">
+
+<img src="./hospital website_files/photo-1587351021759-3e566b6af7cc">
+
+</div>
+
+
+<div class="facility-content">
+
+<span class="section-label">
+01 / PRIVATE CARE
+</span>
+
+<h3>
+Presidential Suites
+</h3>
+
+<p>
+
+Spacious private suites designed with refined interiors,
+dedicated nursing support and every comfort you need
+during your recovery.
+
+</p>
+
+<a href="file:///C:/Users/Aarohan/siri.html#" class="btn btn-gold">
+Discover Facilities →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="facility-list">
+
+
+<div class="facility-item reveal visible">
+
+<span>02</span>
+
+<h3>
+Private Rooms
+</h3>
+
+<p>
+Quiet, comfortable and thoughtfully designed.
+</p>
+
+</div>
+
+
+<div class="facility-item reveal visible">
+
+<span>03</span>
+
+<h3>
+Advanced ICU
+</h3>
+
+<p>
+Critical care supported by advanced technology.
+</p>
+
+</div>
+
+
+<div class="facility-item reveal visible">
+
+<span>04</span>
+
+<h3>
+Advanced Diagnostics
+</h3>
+
+<p>
+Precision imaging and diagnostic services.
+</p>
+
+</div>
+
+
+<div class="facility-item reveal visible">
+
+<span>05</span>
+
+<h3>
+Wellness Lounge
+</h3>
+
+<p>
+A calm environment supporting your wellbeing.
+</p>
+
+</div>
+
+
+<div class="facility-item reveal visible">
+
+<span>06</span>
+
+<h3>
+International Patients
+</h3>
+
+<p>
+Dedicated assistance for global patients.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PATIENT CARE
+===================================================== -->
+
+<section class="section-dark" id="patient-care">
+
+<div class="container care-grid">
+
+
+<div class="care-content reveal visible">
+
+<span class="section-label">
+PATIENT CARE
+</span>
+
+<h2>
+
+Because healing is
+<br>
+
+<em>personal.</em>
+
+</h2>
+
+<p>
+
+From the moment you arrive to the day you return home,
+our patient experience team is here to make every step
+simple, comfortable and reassuring.
+
+</p>
+
+
+<div class="care-points">
+
+<div class="care-point">
+
+<span>✓</span>
+
+<p>
+Dedicated patient concierge
+</p>
+
+</div>
+
+
+<div class="care-point">
+
+<span>✓</span>
+
+<p>
+24/7 nursing assistance
+</p>
+
+</div>
+
+
+<div class="care-point">
+
+<span>✓</span>
+
+<p>
+Personalized treatment plans
+</p>
+
+</div>
+
+
+<div class="care-point">
+
+<span>✓</span>
+
+<p>
+International patient support
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="care-image reveal visible">
+
+<img src="./hospital website_files/photo-1551076805-e1869033e561(1)">
+
+<div class="care-quote">
+Care beyond medicine.
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TESTIMONIALS
+===================================================== -->
+
+<section class="section">
+
+<div class="container">
+
+
+<div class="section-heading center reveal visible">
+
+<span class="section-label">
+PATIENT STORIES
+</span>
+
+<h2>
+
+Trusted by
+<br>
+
+<em>thousands.</em>
+
+</h2>
+
+</div>
+
+
+<div class="testimonial-wrapper">
+
+
+<div class="testimonial active">
+
+<div class="quote">
+“
+</div>
+
+<p>
+
+From the doctors to the nursing team, every person
+made us feel cared for. The level of professionalism
+and warmth was truly exceptional.
+
+</p>
+
+
+<div class="patient">
+
+<div class="patient-avatar">
+RK
+</div>
+
+<div class="patient-info">
+
+<strong>
+Rajiv Kapoor
+</strong>
+
+<span>
+Cardiology Patient
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="testimonial">
+
+<div class="quote">
+“
+</div>
+
+<p>
+
+Aurelia gave our family confidence during one of
+the most difficult moments of our lives. The care
+was extraordinary.
+
+</p>
+
+
+<div class="patient">
+
+<div class="patient-avatar">
+AS
+</div>
+
+<div class="patient-info">
+
+<strong>
+Ananya Shah
+</strong>
+
+<span>
+Patient Family
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="testimonial">
+
+<div class="quote">
+“
+</div>
+
+<p>
+
+The hospital feels incredibly calm and welcoming.
+Every detail, from the rooms to the medical care,
+is thoughtfully designed.
+
+</p>
+
+
+<div class="patient">
+
+<div class="patient-avatar">
+MV
+</div>
+
+<div class="patient-info">
+
+<strong>
+Michael Verma
+</strong>
+
+<span>
+Orthopaedic Patient
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="testimonial-dots">
+
+<button class="t-dot active"></button>
+
+<button class="t-dot"></button>
+
+<button class="t-dot"></button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     APPOINTMENT
+===================================================== -->
+
+<section class="appointment" id="appointment">
+
+<div class="container appointment-grid">
+
+
+<div class="appointment-info reveal visible">
+
+<span class="section-label">
+BOOK A CONSULTATION
+</span>
+
+<h2>
+
+Your health deserves
+<br>
+
+<em>exceptional care.</em>
+
+</h2>
+
+<p>
+
+Request an appointment with one of our specialists.
+Our patient care team will contact you shortly.
+
+</p>
+
+
+<div class="emergency">
+
+
+<div>
+
+<span>
+24/7 EMERGENCY
+</span>
+
+<strong>
++91 1800 123 4567
+</strong>
+
+</div>
+
+
+<div>
+
+<span>
+GENERAL ENQUIRIES
+</span>
+
+<strong>
++91 1800 987 6543
+</strong>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<form class="appointment-form reveal visible" id="appointmentForm">
+
+
+<div class="form-row">
+
+
+<div class="form-group">
+
+<label>
+Your Name
+</label>
+
+<input type="text" placeholder="Enter your name" required="">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Phone Number
+</label>
+
+<input type="tel" placeholder="+91 XXXXX XXXXX" required="">
+
+</div>
+
+
+</div>
+
+
+<div class="form-row">
+
+
+<div class="form-group">
+
+<label>
+Speciality
+</label>
+
+<select required="">
+
+<option value="">
+Select speciality
+</option>
+
+<option>
+Cardiology
+</option>
+
+<option>
+Neurology
+</option>
+
+<option>
+Oncology
+</option>
+
+<option>
+Orthopaedics
+</option>
+
+<option>
+Women &amp; Child Care
+</option>
+
+<option>
+Robotic Surgery
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Preferred Doctor
+</label>
+
+<select>
+
+<option>
+Select doctor
+</option>
+
+<option>
+Dr. Amelia Carter
+</option>
+
+<option>
+Dr. Ethan Williams
+</option>
+
+<option>
+Dr. Sophia Reynolds
+</option>
+
+<option>
+Dr. Daniel Morgan
+</option>
+
+</select>
+
+</div>
+
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Preferred Date
+</label>
+
+<input type="date" required="" min="2026-09-11">
+
+</div>
+
+
+<button type="submit" class="btn btn-gold submit-btn">
+
+Request Appointment
+
+<span>↗</span>
+
+</button>
+
+
+<div class="form-message" id="formMessage">
+
+Thank you. Your appointment request has been received.
+
+</div>
+
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section class="contact" id="contact">
+
+<div class="container">
+
+<div class="contact-grid">
+
+
+<div class="contact-item reveal visible">
+
+<span class="contact-icon">
+⌖
+</span>
+
+<span class="contact-label">
+VISIT US
+</span>
+
+<h3>
+
+28 Aurelia Avenue,
+<br>
+
+Mumbai, Maharashtra
+
+</h3>
+
+</div>
+
+
+<div class="contact-item reveal visible">
+
+<span class="contact-icon">
+☎
+</span>
+
+<span class="contact-label">
+CALL US
+</span>
+
+<h3>
++91 1800 123 4567
+</h3>
+
+</div>
+
+
+<div class="contact-item reveal visible">
+
+<span class="contact-icon">
+✉
+</span>
+
+<span class="contact-label">
+EMAIL US
+</span>
+
+<h3>
+care@aureliamedical.com
+</h3>
+
+</div>
+
+
+<div class="contact-item reveal visible">
+
+<span class="contact-icon">
+◷
+</span>
+
+<span class="contact-label">
+EMERGENCY
+</span>
+
+<h3>
+24 Hours / 7 Days
+</h3>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+<div class="container">
+
+
+<div class="footer-grid">
+
+
+<div class="footer-brand">
+
+
+<a href="file:///C:/Users/Aarohan/siri.html#home" class="logo">
+
+<div class="logo-mark">
+<span>A</span>
+</div>
+
+<div class="logo-text">
+
+AURELIA
+
+<small>
+MEDICAL CENTER
+</small>
+
+</div>
+
+</a>
+
+
+<p>
+Exceptional healthcare, thoughtfully delivered.
+</p>
+
+
+<div class="socials">
+
+<a href="file:///C:/Users/Aarohan/siri.html#">f</a>
+
+<a href="file:///C:/Users/Aarohan/siri.html#">in</a>
+
+<a href="file:///C:/Users/Aarohan/siri.html#">ig</a>
+
+<a href="file:///C:/Users/Aarohan/siri.html#">x</a>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+QUICK LINKS
+</h4>
+
+<a href="file:///C:/Users/Aarohan/siri.html#home">
+Home
+</a>
+
+<a href="file:///C:/Users/Aarohan/siri.html#about">
+About
+</a>
+
+<a href="file:///C:/Users/Aarohan/siri.html#specialities">
+Specialities
+</a>
+
+<a href="file:///C:/Users/Aarohan/siri.html#doctors">
+Doctors
+</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+PATIENT CARE
+</h4>
+
+<a href="file:///C:/Users/Aarohan/siri.html#facilities">
+Facilities
+</a>
+
+<a href="file:///C:/Users/Aarohan/siri.html#patient-care">
+Patient Care
+</a>
+
+<a href="file:///C:/Users/Aarohan/siri.html#appointment">
+Appointments
+</a>
+
+<a href="file:///C:/Users/Aarohan/siri.html#">
+International Patients
+</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+CONTACT
+</h4>
+
+<a href="file:///C:/Users/Aarohan/siri.html#">
++91 1800 123 4567
+</a>
+
+<a href="file:///C:/Users/Aarohan/siri.html#">
+care@aureliamedical.com
+</a>
+
+<p>
+
+28 Aurelia Avenue,
+<br>
+
+Mumbai, Maharashtra
+
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+<p>
+© 2026 Aurelia Medical Center. All Rights Reserved.
+</p>
+
+<div>
+
+<a href="file:///C:/Users/Aarohan/siri.html#">
+Privacy Policy
+</a>
+
+<a href="file:///C:/Users/Aarohan/siri.html#">
+Terms
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =========================================
+   PRELOADER
+========================================= */
+
+window.addEventListener("load", function() {
+
+    setTimeout(function() {
+
+        document
+            .querySelector(".preloader")
+            .classList.add("hide");
+
+    }, 900);
+
+});
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+window.addEventListener("scroll", function() {
+
+    const header =
+        document.querySelector(".header");
+
+    if(window.scrollY > 50) {
+
+        header.classList.add("scrolled");
+
+    } else {
+
+        header.classList.remove("scrolled");
+
+    }
+
+});
+
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navbar =
+    document.getElementById("navbar");
+
+
+menuToggle.addEventListener("click", function() {
+
+    navbar.classList.toggle("active");
+
+});
+
+
+document.querySelectorAll(".navbar a")
+.forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+        navbar.classList.remove("active");
+
+    });
+
+});
+
+
+/* =========================================
+   HERO SLIDER
+========================================= */
+
+const slides =
+    document.querySelectorAll(".hero-slide");
+
+const dots =
+    document.querySelectorAll(".slider-dot");
+
+const next =
+    document.querySelector(".next");
+
+const prev =
+    document.querySelector(".prev");
+
+let currentSlide = 0;
+
+
+function showSlide(index) {
+
+    slides.forEach(function(slide) {
+
+        slide.classList.remove("active");
+
+    });
+
+
+    dots.forEach(function(dot) {
+
+        dot.classList.remove("active");
+
+    });
+
+
+    if(index >= slides.length) {
+
+        currentSlide = 0;
+
+    }
+
+
+    if(index < 0) {
+
+        currentSlide =
+            slides.length - 1;
+
+    }
+
+
+    slides[currentSlide]
+        .classList.add("active");
+
+
+    dots[currentSlide]
+        .classList.add("active");
+
+}
+
+
+function nextSlide() {
+
+    currentSlide++;
+
+    showSlide(currentSlide);
+
+}
+
+
+function previousSlide() {
+
+    currentSlide--;
+
+    showSlide(currentSlide);
+
+}
+
+
+next.addEventListener("click", nextSlide);
+
+prev.addEventListener("click", previousSlide);
+
+
+dots.forEach(function(dot,index) {
+
+    dot.addEventListener("click",function() {
+
+        currentSlide = index;
+
+        showSlide(currentSlide);
+
+    });
+
+});
+
+
+setInterval(function() {
+
+    currentSlide++;
+
+    showSlide(currentSlide);
+
+},6000);
+
+
+/* =========================================
+   COUNTERS
+========================================= */
+
+const counters =
+    document.querySelectorAll(".counter");
+
+let countersStarted = false;
+
+
+function startCounters() {
+
+    if(countersStarted) return;
+
+    countersStarted = true;
+
+
+    counters.forEach(function(counter) {
+
+        const target =
+            Number(counter.dataset.target);
+
+        let number = 0;
+
+        const increment =
+            Math.ceil(target / 60);
+
+
+        function update() {
+
+            number += increment;
+
+
+            if(number >= target) {
+
+                counter.textContent = target;
+
+            } else {
+
+                counter.textContent = number;
+
+                requestAnimationFrame(update);
+
+            }
+
+        }
+
+
+        update();
+
+    });
+
+}
+
+
+setTimeout(startCounters,1200);
+
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const observer =
+    new IntersectionObserver(function(entries) {
+
+        entries.forEach(function(entry) {
+
+            if(entry.isIntersecting) {
+
+                entry.target
+                    .classList.add("visible");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },{
+        threshold:0.12
+    });
+
+
+revealElements.forEach(function(element) {
+
+    observer.observe(element);
+
+});
+
+
+/* =========================================
+   TESTIMONIAL SLIDER
+========================================= */
+
+const testimonials =
+    document.querySelectorAll(".testimonial");
+
+const testimonialDots =
+    document.querySelectorAll(".t-dot");
+
+let testimonialIndex = 0;
+
+
+function showTestimonial(index) {
+
+    testimonials.forEach(function(item) {
+
+        item.classList.remove("active");
+
+    });
+
+
+    testimonialDots.forEach(function(dot) {
+
+        dot.classList.remove("active");
+
+    });
+
+
+    testimonials[index]
+        .classList.add("active");
+
+
+    testimonialDots[index]
+        .classList.add("active");
+
+}
+
+
+testimonialDots.forEach(function(dot,index) {
+
+    dot.addEventListener("click",function() {
+
+        testimonialIndex = index;
+
+        showTestimonial(testimonialIndex);
+
+    });
+
+});
+
+
+setInterval(function() {
+
+    testimonialIndex++;
+
+    if(testimonialIndex >= testimonials.length) {
+
+        testimonialIndex = 0;
+
+    }
+
+    showTestimonial(testimonialIndex);
+
+},5000);
+
+
+/* =========================================
+   APPOINTMENT FORM
+========================================= */
+
+const form =
+    document.getElementById("appointmentForm");
+
+const message =
+    document.getElementById("formMessage");
+
+
+form.addEventListener("submit",function(event) {
+
+    event.preventDefault();
+
+    message.classList.add("show");
+
+    form.reset();
+
+
+    setTimeout(function() {
+
+        message.classList.remove("show");
+
+    },5000);
+
+});
+
+
+/* =========================================
+   DATE
+========================================= */
+
+const dateInput =
+    document.querySelector('input[type="date"]');
+
+
+if(dateInput) {
+
+    const today =
+        new Date()
+            .toISOString()
+            .split("T")[0];
+
+    dateInput.min = today;
+
+}
+
+
+</script>
+
+
+
+```
+</body></html>

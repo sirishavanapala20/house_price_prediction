@@ -1,0 +1,780 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MediCare Hospital | Healthcare Management</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #19324a;
+  background: #f3faff;
+  line-height: 1.6;
+}
+
+:root {
+  --primary: #087f8c;
+  --dark: #073b5c;
+  --light: #e8f9fb;
+  --accent: #ffb703;
+  --white: #fff;
+}
+
+nav {
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 7%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 15px #00000012;
+}
+
+.logo {
+  color: var(--primary);
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.logo span {
+  color: var(--dark);
+}
+
+nav ul {
+  display: flex;
+  gap: 23px;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #234;
+  font-weight: 500;
+  transition: .3s;
+}
+
+nav a:hover {
+  color: var(--primary);
+}
+
+.nav-btn {
+  background: var(--primary);
+  color: white !important;
+  padding: 10px 17px;
+  border-radius: 25px;
+}
+
+/* Marquee */
+.notice {
+  background: var(--dark);
+  color: white;
+  padding: 9px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.notice span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll 22s linear infinite;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+/* Hero */
+.hero {
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  padding: 65px 7%;
+  background:
+    linear-gradient(90deg, #063b5ce8 15%, #063b5c99 55%, #063b5c22),
+    url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1800&q=85')
+    center/cover;
+  color: white;
+}
+
+.hero-content {
+  max-width: 650px;
+  animation: fadeUp 1s ease;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 5vw, 58px);
+  line-height: 1.2;
+  margin: 18px 0;
+}
+
+.hero p {
+  font-size: 17px;
+  margin-bottom: 28px;
+}
+
+.badge {
+  background: #ffffff22;
+  border: 1px solid #ffffff55;
+  padding: 8px 15px;
+  border-radius: 25px;
+  display: inline-block;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 13px 23px;
+  background: var(--primary);
+  color: white;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: inherit;
+  transition: .3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background: #056570;
+}
+
+.btn-yellow {
+  background: var(--accent);
+  color: #17344a;
+  margin-left: 10px;
+}
+
+/* Common */
+section {
+  padding: 75px 7%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  color: var(--dark);
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.section-title p {
+  color: #617384;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+}
+
+/* Facilities */
+.facility-card {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px #12445a0e;
+  transition: .3s;
+}
+
+.facility-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 15px 35px #087f8c20;
+}
+
+.facility-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.facility-info {
+  padding: 22px;
+}
+
+.facility-info h3 {
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.facility-info p {
+  color: #647685;
+  font-size: 14px;
+}
+
+/* Quick services */
+.quick-services {
+  background: linear-gradient(135deg, #e3f8fa, #f6fdff);
+}
+
+.quick-card {
+  text-align: center;
+  padding: 28px 18px;
+  background: white;
+  border-radius: 15px;
+  border: 1px solid #dceff2;
+}
+
+.quick-card .icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.quick-card h3 {
+  color: var(--dark);
+  font-size: 18px;
+}
+
+/* About */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about img {
+  width: 100%;
+  border-radius: 25px;
+  box-shadow: 15px 15px 0 #d2f1f3;
+}
+
+.about h2 {
+  font-size: 34px;
+  color: var(--dark);
+  margin-bottom: 18px;
+}
+
+.about p {
+  color: #5d7180;
+  margin-bottom: 18px;
+}
+
+.about ul {
+  list-style: none;
+}
+
+.about li {
+  margin: 10px 0;
+}
+
+/* Doctors */
+.doctor-card {
+  background: white;
+  border-radius: 18px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 5px 25px #0000000b;
+}
+
+.doctor-card img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+.doctor-card h3 {
+  color: var(--dark);
+}
+
+.doctor-card p {
+  color: var(--primary);
+  font-size: 14px;
+}
+
+/* Appointment */
+.appointment {
+  background:
+    linear-gradient(100deg, #073b5cf0, #087f8cd9),
+    url('https://images.unsplash.com/photo-15760d?auto=format&fit=crop&w=1500&q=8091160399-112ba8d25d1')
+    center/cover;
+  color: white;
+}
+
+.appointment-box {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  color: #17344a;
+  box-shadow: 0 10px 40px #00000022;
+}
+
+.appointment-box h2 {
+  color: var(--dark);
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d4e3e9;
+  border-radius: 8px;
+  font: inherit;
+  outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.form-submit {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Contact */
+.contact-box {
+  text-align: center;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 5px 25px #0000000b;
+}
+
+.contact-box h2 {
+  color: var(--dark);
+  margin-bottom: 15px;
+}
+
+.contact-box p {
+  margin: 8px;
+}
+
+/* Footer */
+footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 35px 7%;
+}
+
+footer h2 {
+  color: #6ce2e8;
+  margin-bottom: 12px;
+}
+
+footer p {
+  color: #d0e2e8;
+  font-size: 14px;
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .hero {
+    min-height: 520px;
+    padding: 45px 7%;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .btn-yellow {
+    margin-left: 0;
+    margin-top: 12px;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.full {
+    grid-column: auto;
+  }
+
+  section {
+    padding: 55px 5%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="logo">✚ Medi<span>Care</span></div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#facilities">Facilities</a></li>
+    <li><a href="#doctors">Doctors</a></li>
+    <li><a href="#appointment" class="nav-btn">Book Appointment</a></li>
+  </ul>
+</nav>
+
+<!-- Scrolling Announcement -->
+<div class="notice">
+  <span>📢 Welcome to MediCare Hospital! | 24/7 Emergency Support | Book your appointment online | Caring for your health, every day! ❤️</span>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="badge">🏥 Trusted Healthcare • Patient First</span>
+    <h1>Your Health.<br>Your Care.<br>Our Priority.</h1>
+    <p>
+      Welcome to MediCare Hospital — providing compassionate care,
+      modern facilities, and a better healthcare experience for everyone.
+    </p>
+    <a href="#appointment" class="btn">Book Appointment</a>
+    <a href="#facilities" class="btn btn-yellow">Explore Facilities</a>
+  </div>
+</section>
+
+<!-- Quick Services -->
+<section class="quick-services">
+  <div class="section-title">
+    <h2>How Can We Help You?</h2>
+    <p>Access essential hospital services easily.</p>
+  </div>
+
+  <div class="grid">
+    <div class="quick-card">
+      <div class="icon">📅</div>
+      <h3>Appointments</h3>
+      <p>Book a visit with our doctors.</p>
+      <br>
+      <a href="#appointment" class="btn">Book Now</a>
+    </div>
+
+    <div class="quick-card">
+      <div class="icon">👨‍⚕️</div>
+      <h3>Find a Doctor</h3>
+      <p>Explore our medical specialists.</p>
+      <br>
+      <a href="#doctors" class="btn">View Doctors</a>
+    </div>
+
+    <div class="quick-card">
+      <div class="icon">🧪</div>
+      <h3>Laboratory</h3>
+      <p>Quality diagnostic services.</p>
+      <br>
+      <a href="#facilities" class="btn">Learn More</a>
+    </div>
+
+    <div class="quick-card">
+      <div class="icon">🚑</div>
+      <h3>Emergency</h3>
+      <p>24/7 emergency assistance.</p>
+      <br>
+      <a href="tel:108" class="btn">Call 108</a>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="about">
+    <div>
+      <h2>Compassionate Care, Modern Healthcare</h2>
+      <p>
+        MediCare Hospital is designed to make healthcare simple,
+        accessible, and comfortable for patients and staff.
+      </p>
+      <ul>
+        <li>✅ Experienced healthcare professionals</li>
+        <li>✅ Modern diagnostic facilities</li>
+        <li>✅ Patient-friendly services</li>
+        <li>✅ Clean and comfortable environment</li>
+        <li>✅ Easy appointment booking</li>
+      </ul>
+      <br>
+      <a href="#facilities" class="btn">Discover More</a>
+    </div>
+
+    <div>
+      <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1000&q=85" alt="Modern hospital interior">
+    </div>
+  </div>
+</section>
+
+<!-- Facilities -->
+<section id="facilities">
+  <div class="section-title">
+    <h2>Our Hospital Facilities</h2>
+    <p>Everything you need for a comfortable healthcare experience.</p>
+  </div>
+
+  <div class="grid">
+
+    <div class="facility-card">
+      <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=700&q=80" alt="Doctors and medical team">
+      <div class="facility-info">
+        <h3>👨‍⚕️ Expert Doctors</h3>
+        <p>Qualified medical professionals offering consultations and treatment.</p>
+      </div>
+    </div>
+
+    <div class="facility-card">
+      <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=700&q=80" alt="Medical consultation">
+      <div class="facility-info">
+        <h3>📅 Appointments</h3>
+        <p>Convenient appointment scheduling to reduce waiting time.</p>
+      </div>
+    </div>
+
+    <div class="facility-card">
+      <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=700&q=80" alt="Clean hospital room">
+      <div class="facility-info">
+        <h3>🛏️ Patient Rooms</h3>
+        <p>Comfortable rooms and organized bed management.</p>
+      </div>
+    </div>
+
+    <div class="facility-card">
+      <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=700&q=80" alt="Laboratory equipment">
+      <div class="facility-info">
+        <h3>🧪 Laboratory</h3>
+        <p>Diagnostic testing and organized laboratory reports.</p>
+      </div>
+    </div>
+
+    <div class="facility-card">
+      <img src="https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&w=700&q=80" alt="Pharmacy medicines">
+      <div class="facility-info">
+        <h3>💊 Pharmacy</h3>
+        <p>Medicine information and pharmacy stock management.</p>
+      </div>
+    </div>
+
+    <div class="facility-card">
+      <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=700&q=80" alt="Medical equipment">
+      <div class="facility-info">
+        <h3>🏥 Advanced Care</h3>
+        <p>Modern medical equipment and coordinated patient care.</p>
+      </div>
+    </div>
+
+    <div class="facility-card">
+      <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=700&q=80" alt="Hospital reception">
+      <div class="facility-info">
+        <h3>🧑‍💼 Reception</h3>
+        <p>Friendly support for registration and patient guidance.</p>
+      </div>
+    </div>
+
+    <div class="facility-card">
+      <img src="https://images.unsplash.com/photo-1586773860383-dab5f3bc1bcc?auto=format&fit=crop&w=700&q=80" alt="Hospital care">
+      <div class="facility-info">
+        <h3>🚑 Emergency Care</h3>
+        <p>Emergency support and access to urgent medical services.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Doctors -->
+<section id="doctors" class="quick-services">
+  <div class="section-title">
+    <h2>Meet Our Doctors</h2>
+    <p>Explore our sample medical specialists.</p>
+  </div>
+
+  <div class="grid">
+
+    <div class="doctor-card">
+      <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&q=80" alt="Doctor">
+      <h3>Dr. Arjun Kumar</h3>
+      <p>General Physician</p>
+      <p>Mon – Fri | 9 AM – 1 PM</p>
+    </div>
+
+    <div class="doctor-card">
+      <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=400&q=80" alt="Doctor">
+      <h3>Dr. Priya Sharma</h3>
+      <p>Cardiologist</p>
+      <p>Mon – Sat | 10 AM – 2 PM</p>
+    </div>
+
+    <div class="doctor-card">
+      <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80" alt="Doctor">
+      <h3>Dr. Rahul Verma</h3>
+      <p>Pediatrician</p>
+      <p>Tue – Sat | 2 PM – 6 PM</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Appointment Form -->
+<section class="appointment" id="appointment">
+  <div class="appointment-box">
+    <h2>📅 Book Your Appointment</h2>
+
+    <form onsubmit="bookAppointment(event)">
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label for="patientName">Patient Name</label>
+          <input type="text" id="patientName" placeholder="Enter full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="patientPhone">Mobile Number</label>
+          <input type="tel" id="patientPhone" placeholder="Enter mobile number" required>
+        </div>
+
+        <div class="form-group">
+          <label for="department">Department</label>
+          <select id="department" required>
+            <option value="">Select Department</option>
+            <option>General Medicine</option>
+            <option>Cardiology</option>
+            <option>Pediatrics</option>
+            <option>Orthopedics</option>
+            <option>Dermatology</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="visitDate">Preferred Date</label>
+          <input type="date" id="visitDate" required>
+        </div>
+
+        <div class="form-group">
+          <label for="visitTime">Preferred Time</label>
+          <input type="time" id="visitTime" required>
+        </div>
+
+        <div class="form-group">
+          <label for="visitType">Visit Type</label>
+          <select id="visitType" required>
+            <option value="">Choose Type</option>
+            <option>New Patient</option>
+            <option>Follow-up Visit</option>
+            <option>General Consultation</option>
+          </select>
+        </div>
+
+        <div class="form-group full">
+          <label for="message">Additional Message</label>
+          <textarea id="message" placeholder="Enter your message (optional)"></textarea>
+        </div>
+
+      </div>
+
+      <div class="form-submit">
+        <button type="submit" class="btn">Submit Appointment Request</button>
+      </div>
+    </form>
+
+    <p id="formMessage" style="text-align:center;margin-top:15px;"></p>
+  </div>
+</section>
+
+<!-- Contact -->
+<section>
+  <div class="contact-box">
+    <h2>📞 Contact MediCare Hospital</h2>
+    <p>📍 Main Road, Your City, India</p>
+    <p>📞 Reception: +91 98765 43210</p>
+    <p>✉️ Email: info@medicare.example</p>
+    <p>🚑 Emergency: Call your local emergency service.</p>
+    <br>
+    <a href="#home" class="btn">Back to Home ↑</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <h2>✚ MediCare Hospital</h2>
+  <p>Compassionate Care • Modern Technology • Healthy Future</p>
+  <p>© 2026 MediCare Hospital. Educational project.</p>
+  <p>Patient privacy and safety are our priority.</p>
+</footer>
+
+<script>
+function bookAppointment(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("patientName").value;
+  const message = document.getElementById("formMessage");
+
+  message.style.color = "#087f8c";
+  message.textContent =
+    "Thank you, " + name +
+    "! Your demo appointment request has been submitted.";
+
+  event.target.reset();
+}
+</script>
+
+</body>
+</html>
